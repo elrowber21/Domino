@@ -1,26 +1,31 @@
 using System;
 
-namespace Domino
+namespace Dom
 {
-    class Pieza
+    //Implementación de la clase Domino
+    class Domino
     {
-        public int arriba;
-        public int abajo;
+        //Atributos de la clase Domino
+        public int Espacio1;
+        public int Espacio2;
 
-        public Pieza(int arr, int aba)
+        // Constructor para la clase Domino 
+        public Domino(int E1, int E2)
         {
-            arriba=arr;
-            abajo=aba;
+            Espacio1=E1;
+            Espacio2=E2;
         }
+        // Definición de resultado para sobrecarga
         public override string ToString()
         {
-            return String.Format("{0}/{1}", arriba, abajo);
+            return String.Format("{0}/{1}", Espacio1, Espacio2);
         }
-        public static Pieza operator +(Pieza x, Pieza y)
+        //Creación para operador +
+        public static Domino operator +(Domino x, Domino y)
         {
-            int arriba=(x.arriba+x.abajo+y.arriba+y.abajo);
-            int abajo=(1);
-            return new Pieza(arriba, abajo);
+            int Espacio1=(x.Espacio1+x.Espacio2+y.Espacio1+y.Espacio2);
+            int Espacio2=(1);
+            return new Domino(Espacio1, Espacio2);
         }
 
     }
@@ -28,12 +33,16 @@ namespace Domino
     {
         static void Main(string[] args)
         {
-            Pieza a= new Pieza(2,5);
-            Pieza b= new Pieza(1,6);
-            Pieza C=a+b;
+            //Construcciones de objetos
+            Domino a= new Domino(2,5);
+            Domino b= new Domino(1,6);
+            //Función de operación
+            Domino C=a+b;
+            //Impresiones
             Console.WriteLine(a);
             Console.WriteLine(b);
             Console.WriteLine(C);            
         }
     }
 }
+
